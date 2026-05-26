@@ -4,8 +4,13 @@
   inputs = {
     ogmios = {
       type = "git";
-      url = "https://github.com/CardanoSolutions/ogmios.git";
-      ref = "refs/tags/v6.14.0";
+
+      # experimental version for node 11
+      # url = "https://github.com/CardanoSolutions/ogmios.git";
+      # ref = "refs/tags/v6.14.0";
+      url = "https://github.com/johnalotoski/ogmios.git";
+      ref = "feature/node-11.0";
+
       # ogmios 6.8+ uses submodules for deps
       submodules = true;
       flake = false;
