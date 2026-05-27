@@ -6,7 +6,7 @@ I tried Cabal in parallel but went with Nix + Docker because I ran into a Cabal 
 
 This what I did:
 
-1. nix flake update
+1. edit flake.nix to point to the fork, then nix flake update
 2. nix build
 3. ./patch-binary-for-docker.sh
 4. docker build .
