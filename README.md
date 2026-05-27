@@ -6,7 +6,8 @@ I tried Cabal in parallel but went the Docker + Nix way because I ran into a Cab
 
 This what I did:
 
-1. nix build
-2. ./patch-binary-for-docker.sh
-3. docker build .
-4. add resulting image to your docker-compose.yml as usual
+1. nix flake update
+2. nix build
+3. ./patch-binary-for-docker.sh
+4. docker build .
+5. add resulting image to your docker-compose.yml as usual
