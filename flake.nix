@@ -78,8 +78,14 @@
             customConfigs = [ config ];
           });
 
+          dockerImage = import ./nix/docker.nix {
+            inherit pkgs;
+            ogmios-exe = project.hsPkgs.ogmios.components.exes.ogmios;
+          };
+
           packages = {
             inherit (project.hsPkgs.ogmios.components.exes) ogmios;
+            inherit dockerImage;
           } // scripts;
 
           apps = lib.mapAttrs (n: p: { type = "app"; program = p.exePath or "${p}/bin/${p.name or n}"; }) packages;
