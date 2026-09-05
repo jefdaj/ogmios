@@ -1,16 +1,14 @@
-# Temporary cardano-node-ogmios for cardano-node 11
+ogmios-nix
+==========
 
-[johnalotoski's fork][1] seems to be working so far!
+This started as a temporary fork to get Ogmios working with Cardano Node 11.
+Then I decided to keep the fork around because I also added a pure Nix build of the Docker image.
+It only covers the `ogmios` build target so far, not `cardano-node-ogmios`.
 
-I tried Cabal in parallel but went with Nix + Docker because I ran into a Cabal dependency error.
+Usage:
 
-This what I did:
-
-1. edit flake.nix to point to the fork, then nix flake update
-2. nix build
-3. ./patch-binary-for-docker.sh
-4. docker build .
-5. add resulting image to your docker-compose.yml as usual (example [here][2])
-
-[1]: https://github.com/johnalotoski/ogmios/tree/feature/node-11.0
-[2]: https://github.com/jefdaj/electionguard-cardano/blob/node-11-with-experimental-ogmios/milestone2/cardano-node-ogmios/docker-compose.yml
+```
+nix build .#dockerImage
+docker load < result
+docker image ls jefdaj/ogmios-nix
+```
