@@ -1,5 +1,5 @@
+# nix result symlinks
 result*
-docker-build/*
 
 # vim swapfiles
 *.sw*
