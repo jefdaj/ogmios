@@ -5,6 +5,7 @@ set -euo pipefail
 OGMIOS_BIN="result/bin/ogmios"
 OUT_DIR="./docker-build"
 mkdir -p "$OUT_DIR/lib"
+chmod 777 "$OUT_DIR" -R # TODO what's up with the permissions errors?
 
 cp "$OGMIOS_BIN" "$OUT_DIR/ogmios"
 chmod +w "$OUT_DIR/ogmios"
